@@ -27,6 +27,7 @@ button{
 .list_divider{
   display: flex;
   flex-direction: column;
+  padding-left: 10px;
 }
 .divider{
   margin-left: -20%;

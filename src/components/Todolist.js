@@ -7,37 +7,66 @@ export const Todolist = () => {
 
   function addfnc() {
     setId(id + 1); // Increment id before adding
-    setState([...state, { name: name, id: id }]);
+    setState([...state, { name: name, id: id, completed: false }]);
     setName(""); // Clear input after adding
   }
 
   function deleteItem(id) {
-    const newState = state.filter(item => item.id !== id);//filters the list with the ele such that all ele where id!=desired id gets passed
+    const newState = state.filter(item => item.id !== id); // Filters out the item with the specified id
+    setState(newState);
+  }
+
+  function completeItem(id) {
+    const newState = state.map(item => 
+      item.id === id ? { ...item, completed: true } : item // Set `completed` to true for the matching item
+    );
     setState(newState);
   }
 
   function Ele(props) {
     return (
-    <div className='list_divider'>
-      <div className='list_ele'>
-        <li><b>{props.task.name}</b></li>
-        <button onClick={() => props.onDelete(props.task.id)}>-</button>
+      <div className='list_divider'>
+        <div className='list_ele'>
+          <li><b>{props.task.name}</b></li>
+          <button onClick={() => props.onDelete(props.task.id)}>-</button>
+          <button onClick={() => props.onComplete(props.task.id)}>✓</button>
+        </div>
+        <p className='divider'>________________________________________________________________________</p>
       </div>
-      <p className='divider'>________________________________________________________________________</p>
-    </div>
+    );
+  }
+
+  function Compele(props) {
+    return (
+      <div className='list_divider'>
+        <div className='list_ele'>
+          <li><b>{props.task.name}</b></li>
+        </div>
+        <p className='divider'>________________________________________________________________________</p>
+      </div>
     );
   }
 
   return (
-
     <div className='container'>
-        <h1>To Do List</h1>
+      <h1>To Do List</h1>
+      
       <ul>
-        {state.map((item) => (
+        {state.filter(item => !item.completed).map((item) => (
           <Ele 
-          
+            key={item.id}
             task={item} 
             onDelete={deleteItem} 
+            onComplete={completeItem}
+          />
+        ))}
+      </ul>
+
+      <ul>
+        {state.filter(item => item.completed).map((item) => (
+          <Compele
+            key={item.id}
+            task={item} 
           />
         ))}
       </ul>
