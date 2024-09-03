@@ -6,14 +6,15 @@ input{
   border-radius: 20px;
   padding: 4px;
   background-color: black;
+  border: 2px solid rgb(215, 206, 206);
   color: aliceblue;
 }
 button{
   margin-left: 4px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: black;
   color: aliceblue;
-  border-color: aliceblue;
+  border: 2px solid rgb(46, 37, 37);
 }
 .list_ele{
   display: flex;
@@ -32,6 +33,27 @@ button{
 .divider{
   margin-left: -20%;
 }
-h1{
-  margin-left: 1%;
+.first_head{
+ 
+ margin-top: -13%;
+}
+.comp_heading{
+  color: greenyellow;
+  
+}
+.compl_li{
+  text-decoration-line: line-through;
+  text-decoration-color: rgb(10, 213, 64);
+  text-decoration-thickness: 2px;
+}
+
+.uncomp_li{
+  margin-left: -10px;
+}
+.deletebtn{
+color: red;
+}
+
+.addbtn{
+  color: greenyellow;
 }

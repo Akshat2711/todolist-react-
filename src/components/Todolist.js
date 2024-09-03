@@ -27,9 +27,9 @@ export const Todolist = () => {
     return (
       <div className='list_divider'>
         <div className='list_ele'>
-          <li><b>{props.task.name}</b></li>
-          <button onClick={() => props.onDelete(props.task.id)}>-</button>
-          <button onClick={() => props.onComplete(props.task.id)}>✓</button>
+          <li className='uncomp_li'><b>{props.task.name}</b></li>
+          <button onClick={() => props.onDelete(props.task.id)} className='deletebtn'>Delete 🗑️</button>
+          <button onClick={() => props.onComplete(props.task.id)} className='addbtn'>Mark Done ✓</button>
         </div>
         <p className='divider'>________________________________________________________________________</p>
       </div>
@@ -40,7 +40,7 @@ export const Todolist = () => {
     return (
       <div className='list_divider'>
         <div className='list_ele'>
-          <li><b>{props.task.name}</b></li>
+          <li className='compl_li'><b>{props.task.name}</b></li>
         </div>
         <p className='divider'>________________________________________________________________________</p>
       </div>
@@ -49,7 +49,7 @@ export const Todolist = () => {
 
   return (
     <div className='container'>
-      <h1>To Do List</h1>
+      <h1 className='first_head'>To Do List</h1>
       
       <ul>
         {state.filter(item => !item.completed).map((item) => (
@@ -61,6 +61,10 @@ export const Todolist = () => {
           />
         ))}
       </ul>
+
+
+<h1 className='comp_heading'><b>Completed</b></h1>
+
 
       <ul>
         {state.filter(item => item.completed).map((item) => (
@@ -78,7 +82,7 @@ export const Todolist = () => {
         onChange={(e) => setName(e.target.value)} 
       />
 
-      <button onClick={addfnc}>+</button>
+      <button onClick={addfnc}>Add Item +</button>
     </div>
   );
 }
