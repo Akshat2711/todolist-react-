@@ -31,7 +31,7 @@ export const Todolist = () => {
           <button onClick={() => props.onDelete(props.task.id)} className='deletebtn'>Delete 🗑️</button>
           <button onClick={() => props.onComplete(props.task.id)} className='addbtn'>Mark Done ✓</button>
         </div>
-        <p className='divider'>________________________________________________________________________</p>
+        <p className='divider'>_____________________________________________________________________</p>
       </div>
     );
   }
@@ -42,7 +42,7 @@ export const Todolist = () => {
         <div className='list_ele'>
           <li className='compl_li'><b>{props.task.name}</b></li>
         </div>
-        <p className='divider'>________________________________________________________________________</p>
+        <p className='divider'>_____________________________________________________________________</p>
       </div>
     );
   }
@@ -82,7 +82,7 @@ export const Todolist = () => {
         onChange={(e) => setName(e.target.value)} 
       />
 
-      <button onClick={addfnc}>Add Item +</button>
+      <button onClick={addfnc} className='addlist_btn'>Add Item +</button>
     </div>
   );
 }
